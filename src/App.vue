@@ -1,8 +1,8 @@
 <template lang="">
 	<div>
 		<TodoHeader></TodoHeader>
-		<TodoInput v-on:addTodoItem="addOneItem"></TodoInput>
-		<TodoList v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem" v-on:toggleItem="toggleOneItem"></TodoList>
+		<TodoInput></TodoInput>
+		<TodoList v-on:removeItem="removeOneItem" v-on:toggleItem="toggleOneItem"></TodoList>
 		<TodoFooter v-on:clearAll="clearAllItems"></TodoFooter>
 	</div>
 </template>
@@ -26,17 +26,17 @@ export default {
 		}
 	},
 	created() {
-		if (localStorage.length > 0) {
+		/* if (localStorage.length > 0) {
             for (let i = 0; i < localStorage.length; i++) {
                 // console.log(localStorage.key(i))
                 // this.todoItems.push(localStorage.key(i))
                 this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
                 // console.log(localStorage.getItem(localStorage.key(i)))
             }
-        }	
+        } */	
 	},
 	methods: {
-		addOneItem(todoItem) {
+		/* addOneItem(todoItem) {
 			const obj = {
 				completed: false,
 				item: todoItem
@@ -59,7 +59,7 @@ export default {
 		clearAllItems() {
 			localStorage.clear();
 			this.todoItems = [];
-		}
+		} */
 	},
 }
 </script>

@@ -10,7 +10,6 @@
                 <i class="closeModalBtn fas fa-times" v-on:click="showModal = false"></i>
             </h3>
             <p slot="body">내용을 입력해 주세요.</p>
-            <!-- <p slot="footer">정말 닫으시겠습니까?</p> -->
         </ModalComponent>
     </div>
 </template>
@@ -39,7 +38,9 @@ export default {
 
                 localStorage.setItem(this.newTodoItem, JSON.stringify(obj)); */
                 
-                this.$emit('addTodoItem', this.newTodoItem)
+                // this.$emit('addTodoItem', this.newTodoItem)
+                this.$store.commit('addOneItem', this.newTodoItem);
+
                 this.clearInput();
             } else {
                 this.showModal = !this.showModal
