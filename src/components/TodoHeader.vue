@@ -1,6 +1,6 @@
 <template lang="">
     <header>
-        <h1>TODO it!</h1>
+        <h1>TODO APP</h1>
     </header>
 </template>
 

@@ -1,9 +1,9 @@
-<template lang="">
+<template>
 	<div>
 		<TodoHeader></TodoHeader>
 		<TodoInput></TodoInput>
-		<TodoList v-on:removeItem="removeOneItem" v-on:toggleItem="toggleOneItem"></TodoList>
-		<TodoFooter v-on:clearAll="clearAllItems"></TodoFooter>
+		<TodoList></TodoList>
+		<TodoFooter></TodoFooter>
 	</div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
 	},
 	data() {
 		return {
-			todoItems: [],
+			// todoItems: [],
 		}
 	},
 	created() {

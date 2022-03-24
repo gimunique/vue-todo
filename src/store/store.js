@@ -19,7 +19,13 @@ export const store = new Vuex.Store({
     state: {
         todoItems: storage.fetch(),
     },
+    getters: {
+        storedTodoItem(state) {
+            return state.todoItems;
+        }
+    },
     mutations: {
+        // 값을 변경하기 위해 필요
         addOneItem(state, todoItem) {
 			const obj = {
 				completed: false,
@@ -29,20 +35,22 @@ export const store = new Vuex.Store({
 			localStorage.setItem(todoItem, JSON.stringify(obj)); 
 			state.todoItems.push(obj);
 		},
-		removeOneItem(todoItem, index) {
-			localStorage.removeItem(todoItem.item)
-            this.todoItems.splice(index, 1)
+		removeOneItem(state, payload) {
+			localStorage.removeItem(payload.todoItem.item)
+            state.todoItems.splice(payload.index, 1)
 		},
-		toggleOneItem(todoItem, index) {
-			// todoItem.completed = !todoItem.completed;
-			this.todoItems[index].completed = !this.todoItems[index].completed;
+		toggleOneItem(state, payload) {
+			state.todoItems[payload.index].completed = !state.todoItems[payload.index].completed;
 
-            localStorage.removeItem(todoItem.item);
-            localStorage.setItem(todoItem.item, JSON.stringify(todoItem))
+            localStorage.removeItem(payload.todoItem.item);
+            localStorage.setItem(payload.todoItem, JSON.stringify(payload.todoItem))
 		},
-		clearAllItems() {
+		clearAllItems(state) {
 			localStorage.clear();
-			this.todoItems = [];
+			state.todoItems = [];
 		}
+    },
+    actions: {
+        // 비동기 처리
     }
 });

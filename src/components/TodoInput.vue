@@ -37,7 +37,6 @@ export default {
                 }
 
                 localStorage.setItem(this.newTodoItem, JSON.stringify(obj)); */
-                
                 // this.$emit('addTodoItem', this.newTodoItem)
                 this.$store.commit('addOneItem', this.newTodoItem);
 
