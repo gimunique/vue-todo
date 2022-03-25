@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import todoApp from './modules/todoApp'
+// import * as getters from './getters'
+// import * as mutations from './mutations'
 
 Vue.use(Vuex);
 
-const storage = {
+/* const storage = {
     fetch() {
         const arr = [];
         if (localStorage.length > 0) {
@@ -13,13 +16,19 @@ const storage = {
         }
         return arr;
     }
-}
+} */
 
 export const store = new Vuex.Store({
-    state: {
+    modules: {
+        todoApp
+    }
+
+    /* state: {
         todoItems: storage.fetch(),
     },
-    getters: {
+    getters,
+    mutations, */
+   /*  getters: {
         storedTodoItem(state) {
             return state.todoItems;
         }
@@ -49,8 +58,8 @@ export const store = new Vuex.Store({
 			localStorage.clear();
 			state.todoItems = [];
 		}
-    },
-    actions: {
+    }, */
+    /* actions: {
         // 비동기 처리
-    }
+    } */
 });
